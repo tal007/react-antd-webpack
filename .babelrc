@@ -8,7 +8,7 @@
         },
         "modules": false,
         // 是否启用console.log
-        "debug": true,
+        // "debug": true,
         "useBuiltIns": "entry"
       }
     ],
