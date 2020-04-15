@@ -87,7 +87,7 @@ module.exports = {
       // 允许在 .js 和 .jsx 文件中使用  jsx
       "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
       // jsx > 紧跟着属性
-      "react/jsx-closing-bracket-location": [1, "after-props"],
+      "react/jsx-closing-bracket-location": [0, "after-props"],
       // 不区分是否是 无状态组件
       "react/prefer-stateless-function": 0,
       // prop-types忽略children属性
