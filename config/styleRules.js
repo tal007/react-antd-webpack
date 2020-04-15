@@ -16,25 +16,8 @@ const devLessLoader = [
   },
 ];
 
-const prodCssloader = [
-  MiniCssExtractPlugin.loader,
-  'style-loader',
-  'css-loader',
-  'postcss-loader',
-];
-const prodLessLoader = [
-  MiniCssExtractPlugin.loader,
-  'style-loader',
-  'css-loader',
-  'postcss-loader',
-  {
-    loader: 'less-loader',
-    options: {
-      javascriptEnabled: true,
-      modifyVars: { '@primary-color': '#1DA57A' },
-    },
-  },
-];
+const prodCssloader = [MiniCssExtractPlugin.loader].concat(devCssLoader);
+const prodLessLoader = [MiniCssExtractPlugin.loader].concat(devLessLoader);
 
 const rules = [
   {
