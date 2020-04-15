@@ -1,6 +1,5 @@
 react + antd + webpack
 
-
 ## loaders
 ### babel-loader
 处理js，jsx，ts，tsx语法
@@ -52,3 +51,57 @@ css代码抽离，详见`config/webpack.prod.js`
 > npm i --save-dev react-hot-loader
 
 使用详见： `src/App.jsx`。还需要在 `.babelrc` 中配置 plugins
+
+## 代码规范
+ESlint + Prettier
+
+> npm i --save-dev eslint
+
+
+### 配合VSCode使用
+VSCode 安装插件
+
+- [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+
+- [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+
+.eslintrc.js中添加
+
+```js
+"plugins": ["prettier"],
+"rules": {
+  "prettier/prettier": "error"
+}
+```
+
+添加 .ptettierrc.js 配置如下，可自行修改
+
+```js
+// configs see https://prettier.io/docs/en/options.html
+
+module.exports = {
+  trailingComma: 'es5',
+  singleQuote: true,
+  jsxSingleQuote: true,
+  tabWidth: 2,
+  semi: true,
+  bracketSpacing: true,
+  arrowParens: 'always'
+}
+```
+
+在settings.json 中添加如下
+
+```json
+// jsx自动修复有问题，取消js的format
+"editor.formatOnSave": false,
+// Enable/disable default JavaScript formatter (For Prettier)
+"javascript.format.enable": false,
+"prettier.singleQuote": true,
+// 点击保存时，根据 eslint 规则自定修复，同时集成 prettier 到 eslint 中
+"prettier.eslintIntegration": true,
+// 保存自动修复
+"editor.codeActionsOnSave": {
+  "source.fixAll.eslint": true
+},
+```
