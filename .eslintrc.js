@@ -22,9 +22,11 @@ module.exports = {
       "sourceType": "module"
   },
   "plugins": [
-      "react"
+    "react",
+    "prettier"
   ],
   "rules": {
+    "prettier/prettier": "error",
       //关闭换行符操作系统格式问题
       "linebreak-style": [
           "off",

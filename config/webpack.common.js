@@ -4,18 +4,14 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const resolve = require('./resolve');
 
 module.exports = {
-  entry: [
-    path.resolve(__dirname, '../index.js'),
-  ],
+  entry: [path.resolve(__dirname, '../index.js')],
   resolve,
   module: {
     rules: [
       {
         test: /\.(js|jsx)$/,
         exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: 'babel-loader',
-        },
+        use: ['babel-loader'],
       },
       {
         test: /\.(jpg|jpeg|webp|png|svg|gif)$/,

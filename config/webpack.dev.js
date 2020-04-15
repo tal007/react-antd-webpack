@@ -20,10 +20,7 @@ const devConfig = {
           {
             loader: 'postcss-loader',
             options: {
-              plugins: () => [
-                PostcssCssnext(),
-                Cssnano(),
-              ],
+              plugins: () => [PostcssCssnext(), Cssnano()],
             },
           },
         ],
@@ -38,10 +35,7 @@ const devConfig = {
           {
             loader: 'postcss-loader',
             options: {
-              plugins: () => [
-                PostcssCssnext(),
-                Cssnano(),
-              ],
+              plugins: () => [PostcssCssnext(), Cssnano()],
             },
           },
         ],

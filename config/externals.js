@@ -1,4 +1,2 @@
 // 外链库
-module.exports = {
-
-};
+module.exports = {};

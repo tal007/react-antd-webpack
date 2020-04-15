@@ -25,10 +25,7 @@ const prodConfig = {
           {
             loader: 'postcss-loader',
             options: {
-              plugins: () => [
-                PostcssCssnext(),
-                Cssnano(),
-              ],
+              plugins: () => [PostcssCssnext(), Cssnano()],
             },
           },
         ],
@@ -43,10 +40,7 @@ const prodConfig = {
           {
             loader: 'postcss-loader',
             options: {
-              plugins: () => [
-                PostcssCssnext(),
-                Cssnano(),
-              ],
+              plugins: () => [PostcssCssnext(), Cssnano()],
             },
           },
         ],
