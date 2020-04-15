@@ -2,8 +2,6 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const PostcssCssnext = require('postcss-cssnext');
-const Cssnano = require('cssnano');
 const externals = require('./externals');
 
 const prodConfig = {
@@ -22,12 +20,7 @@ const prodConfig = {
           MiniCssExtractPlugin.loader,
           'style-loader',
           'css-loader',
-          {
-            loader: 'postcss-loader',
-            options: {
-              plugins: () => [PostcssCssnext(), Cssnano()],
-            },
-          },
+          'postcss-loader',
         ],
       },
       {
@@ -36,12 +29,7 @@ const prodConfig = {
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
-          {
-            loader: 'postcss-loader',
-            options: {
-              plugins: () => [PostcssCssnext(), Cssnano()],
-            },
-          },
+          'postcss-loader',
           'less-loader',
         ],
       },

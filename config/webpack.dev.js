@@ -1,7 +1,5 @@
 const webpack = require('webpack');
 const path = require('path');
-const PostcssCssnext = require('postcss-cssnext');
-const Cssnano = require('cssnano');
 
 const devConfig = {
   mode: 'development',
@@ -13,31 +11,21 @@ const devConfig = {
     rules: [
       {
         test: /\.css$/,
-        exclude: /(node_modules|bower_components)/,
-        use: [
-          'style-loader',
-          'css-loader',
-          {
-            loader: 'postcss-loader',
-            options: {
-              plugins: () => [PostcssCssnext(), Cssnano()],
-            },
-          },
-        ],
+        use: ['style-loader', 'css-loader', 'postcss-loader'],
       },
       {
         test: /\.less$/,
-        exclude: /(node_modules|bower_components)/,
         use: [
           'style-loader',
           'css-loader',
+          'postcss-loader',
           {
-            loader: 'postcss-loader',
+            loader: 'less-loader',
             options: {
-              plugins: () => [PostcssCssnext(), Cssnano()],
+              javascriptEnabled: true,
+              modifyVars: { '@primary-color': '#1DA57A' },
             },
           },
-          'less-loader',
         ],
       },
     ],
@@ -53,7 +41,7 @@ const devConfig = {
     hot: true,
     // 启用压缩
     compress: true,
-    open: true,
+    // open: true,
   },
 };
 
