@@ -20,9 +20,11 @@ const devConfig = {
   devServer: {
     port: 4000,
     hot: true,
-    // 启用压缩
+    // 启用gzip压缩预览
     compress: true,
     // open: true,
+    // 解决 BrowserRouter 刷新 404 问题
+    historyApiFallback: true,
   },
 };
 

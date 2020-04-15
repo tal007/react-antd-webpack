@@ -5,7 +5,7 @@ import Loading from '@comp/Loading';
 import Routes from './Routes';
 
 const App = () => (
-  <BrowserRouter>
+  <BrowserRouter basename="/">
     <Routes />
   </BrowserRouter>
 );
