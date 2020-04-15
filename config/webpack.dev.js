@@ -32,6 +32,7 @@ const devConfig = {
         test: /\.less$/,
         exclude: /(node_modules|bower_components)/,
         use: [
+          'style-loader',
           'css-loader',
           'less-loader',
           {

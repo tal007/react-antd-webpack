@@ -1,4 +1,4 @@
-import './style/common.less';
+import '@styl/common.less';
 import { hot } from 'react-hot-loader';
 import Header from '@comp/Header';
 import Footer from '@comp/Footer';
@@ -27,7 +27,7 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        <h1>React App.</h1>
+        {/* <h1>React App.</h1> */}
         <p>{this.state.count}</p>
         <button type="button" onClick={this.addCount.bind(this)}>Add count</button>
         <Footer />
