@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
+const styleRules = require('./styleRules');
 
 const devConfig = {
   mode: 'development',
@@ -8,27 +9,7 @@ const devConfig = {
     filename: 'bundle.[hash].js',
   },
   module: {
-    rules: [
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader', 'postcss-loader'],
-      },
-      {
-        test: /\.less$/,
-        use: [
-          'style-loader',
-          'css-loader',
-          'postcss-loader',
-          {
-            loader: 'less-loader',
-            options: {
-              javascriptEnabled: true,
-              modifyVars: { '@primary-color': '#1DA57A' },
-            },
-          },
-        ],
-      },
-    ],
+    rules: styleRules,
   },
   plugins: [
     // 热更新插件

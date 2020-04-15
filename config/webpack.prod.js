@@ -3,6 +3,7 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const externals = require('./externals');
+const styleRules = require('./styleRules');
 
 const prodConfig = {
   mode: 'production',
@@ -12,28 +13,7 @@ const prodConfig = {
   },
   externals,
   module: {
-    rules: [
-      {
-        test: /\.css$/,
-        exclude: /(node_modules|bower_components)/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'style-loader',
-          'css-loader',
-          'postcss-loader',
-        ],
-      },
-      {
-        test: /\.less$/,
-        exclude: /(node_modules|bower_components)/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          'css-loader',
-          'postcss-loader',
-          'less-loader',
-        ],
-      },
-    ],
+    rules: styleRules,
   },
   plugins: [
     new CleanWebpackPlugin(),
