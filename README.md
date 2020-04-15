@@ -104,3 +104,28 @@ module.exports = {
   "source.fixAll.eslint": true
 },
 ```
+
+## 问题
+### 使用 BrowserRouter 刷新 404 
+在 devServer 中 添加 `historyApiFallback: true`
+
+### 使用 webpack alias 的时候路径提示
+根目录添加 `jsconfig.json` 文件，与 alias 中的对应
+
+```json
+{
+  "compilerOptions": {
+      "experimentalDecorators": true,
+      "baseUrl": "./",
+      "paths": {
+        "@/*": ["./src"],
+        "@comp/*": ["./src/components"],
+        "@img/*": ["./src/img"],
+        "@styl/*": ["./src/style"],
+        "@pages/*": ["./src/pages"],
+      }
+  },
+  "exclude": ["node_modules", "dist"]
+}
+
+```
