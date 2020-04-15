@@ -7,9 +7,10 @@
           "browsers": ["ie>=8", "chrome>=62"]
         },
         "modules": false,
+        "corejs": 3,
         // 是否启用console.log
         // "debug": true,
-        "useBuiltIns": "entry"
+        "useBuiltIns": "usage"
       }
     ],
     [
