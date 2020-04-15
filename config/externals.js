@@ -1,2 +1,5 @@
 // 外链库
-module.exports = {};
+module.exports = {
+  react: 'React',
+  'react-dom': 'ReactDOM',
+};

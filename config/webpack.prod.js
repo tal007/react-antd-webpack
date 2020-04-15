@@ -2,6 +2,8 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const WebpackBundleAnalyzer = require('webpack-bundle-analyzer')
+  .BundleAnalyzerPlugin;
 const externals = require('./externals');
 const styleRules = require('./styleRules');
 
@@ -22,6 +24,7 @@ const prodConfig = {
       // 即可以通过在名字前加路径，来决定打包后的文件存在的路径
       filename: 'css/[name].[hash].css',
     }),
+    new WebpackBundleAnalyzer(),
   ],
 };
 

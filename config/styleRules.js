@@ -3,8 +3,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const isDEV = process.env.NODE_ENV === 'development';
 
 const devCssLoader = ['style-loader', 'css-loader', 'postcss-loader'];
-const devLessLoader = [
-  'style-loader',
+const lessLoader = [
   'css-loader',
   'postcss-loader',
   {
@@ -15,9 +14,10 @@ const devLessLoader = [
     },
   },
 ];
+const devLessLoader = ['style-loader'].concat(lessLoader);
 
 const prodCssloader = [MiniCssExtractPlugin.loader].concat(devCssLoader);
-const prodLessLoader = [MiniCssExtractPlugin.loader].concat(devLessLoader);
+const prodLessLoader = [MiniCssExtractPlugin.loader].concat(lessLoader);
 
 const rules = [
   {
