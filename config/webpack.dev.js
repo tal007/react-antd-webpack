@@ -31,13 +31,13 @@ const devConfig = {
         use: [
           'style-loader',
           'css-loader',
-          'less-loader',
           {
             loader: 'postcss-loader',
             options: {
               plugins: () => [PostcssCssnext(), Cssnano()],
             },
           },
+          'less-loader',
         ],
       },
     ],
