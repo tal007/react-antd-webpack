@@ -22,14 +22,16 @@ class App extends React.Component {
       count: state.count + 1,
     }));
   }
-  
+
   render() {
     return (
       <div>
         <Header />
         {/* <h1>React App.</h1> */}
         <p>{this.state.count}</p>
-        <button type="button" onClick={this.addCount.bind(this)}>Add count</button>
+        <button type="button" onClick={this.addCount.bind(this)}>
+          Add count
+        </button>
         <Footer />
       </div>
     );
