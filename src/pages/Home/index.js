@@ -1,9 +1,8 @@
-import Header from '@comp/Header';
 import Footer from '@comp/Footer';
 
 const Home = () => (
   <div>
-    <Header />
+    Home
     <Footer />
   </div>
 );

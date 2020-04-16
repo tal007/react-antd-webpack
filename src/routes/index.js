@@ -2,11 +2,14 @@ import { Suspense } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { hot } from 'react-hot-loader';
 import Loading from '@comp/Loading';
+import Layout from '@comp/Layout';
 import Routes from './Routes';
 
 const App = () => (
   <BrowserRouter basename="/">
-    <Routes />
+    <Layout>
+      <Routes />
+    </Layout>
   </BrowserRouter>
 );
 
