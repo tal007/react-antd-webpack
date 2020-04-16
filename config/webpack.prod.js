@@ -7,6 +7,8 @@ const TerserPlugin = require('terser-webpack-plugin');
 const externals = require('./externals');
 const styleRules = require('./styleRules');
 
+const bundleAnalyzer = false;
+
 const prodConfig = {
   mode: 'production',
   devtool: 'cheap-module-source-map',
@@ -33,7 +35,7 @@ const prodConfig = {
       // 即可以通过在名字前加路径，来决定打包后的文件存在的路径
       filename: 'css/[name].[hash:8].css',
     }),
-    // new BundleAnalyzerPlugin(),
+    bundleAnalyzer && new BundleAnalyzerPlugin(),
   ],
 };
 
