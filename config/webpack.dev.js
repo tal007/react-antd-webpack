@@ -1,14 +1,9 @@
 const webpack = require('webpack');
-const path = require('path');
 const styleRules = require('./styleRules');
 
 const devConfig = {
   mode: 'development',
   devtool: 'cheap-module-eval-source-map',
-  output: {
-    path: path.resolve(__dirname, '../build'),
-    filename: 'bundle.[hash].js',
-  },
   module: {
     rules: styleRules,
   },
@@ -23,7 +18,7 @@ const devConfig = {
     hot: true,
     // 启用gzip压缩预览
     compress: true,
-    // open: true,
+    open: true,
     // 解决 BrowserRouter 刷新 404 问题
     historyApiFallback: true,
   },
