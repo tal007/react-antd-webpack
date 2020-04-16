@@ -1,5 +1,6 @@
 import './index.less';
 import { NavLink } from 'react-router-dom';
+import dayjs from 'dayjs';
 
 const Header = () => (
   <header className="rg-header">
@@ -21,6 +22,7 @@ const Header = () => (
         About
       </NavLink>
     </nav>
+    {dayjs().format()}
   </header>
 );
 

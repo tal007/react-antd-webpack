@@ -4,6 +4,7 @@ const styleRules = require('./styleRules');
 
 const devConfig = {
   mode: 'development',
+  devtool: 'cheap-module-eval-source-map',
   output: {
     path: path.resolve(__dirname, '../build'),
     filename: 'bundle.[hash].js',

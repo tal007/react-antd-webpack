@@ -9,7 +9,7 @@ const Footer = () => {
 
   return (
     <ThemeContext.Provider value={clickTimes}>
-      <footer className="rg-header">
+      <footer className="rg-footer">
         <FooterChild />
         <Button onClick={() => setClickTimes(clickTimes + 1)}>
           Footer Click Context Provider

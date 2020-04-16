@@ -16,6 +16,7 @@ const lessLoader = [
 ];
 const devLessLoader = ['style-loader'].concat(lessLoader);
 
+// MiniCssExtractPlugin.loader 压缩CSS
 const prodCssloader = [MiniCssExtractPlugin.loader].concat(devCssLoader);
 const prodLessLoader = [MiniCssExtractPlugin.loader].concat(lessLoader);
 
