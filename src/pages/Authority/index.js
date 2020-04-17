@@ -1,5 +1,6 @@
 import './index.less';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { PageHeader, Input, Button, Row, Col, Divider, message } from 'antd';
 
 import { SearchOutlined } from '@ant-design/icons';
@@ -7,10 +8,6 @@ import AccountTabele from './AccountTable';
 
 const Authority = () => {
   const [inputValue, setinputValue] = useState('');
-
-  function addAccount() {
-    message.info('添加账号');
-  }
 
   function searchAccount() {
     if (inputValue.trim().length) {
@@ -53,7 +50,9 @@ const Authority = () => {
       {/* 账号 */}
       {/* 添加账号 */}
       <section className="add-account-btn">
-        <Button onClick={addAccount}>添加账号</Button>
+        <Link to="/authority/add-account">
+          <Button>添加账号</Button>
+        </Link>
       </section>
       {/* 账号列表 */}
       <section className="account-list">

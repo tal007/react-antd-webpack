@@ -4,6 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 const Home = lazy(() => import('@pages/Home'));
 const About = lazy(() => import('@pages/About'));
 const Authority = lazy(() => import('@pages/Authority'));
+const AddAccount = lazy(() => import('@pages/AddAccount'));
 
 export const routes = [
   {
@@ -21,6 +22,13 @@ export const routes = [
     path: '/authority',
     component: Authority,
     displayName: 'Authority',
+    exact: true,
+  },
+  {
+    path: '/add-account',
+    component: AddAccount,
+    displayName: 'AddAccount',
+    exact: true,
   },
 ];
 

@@ -1,13 +1,13 @@
 import { List, Button, Checkbox, message, Modal, Row, Col } from 'antd';
-import CusModal from '@comp/Modal';
+import CusModal from '../../components/Modal';
 
-const AccountTableHeader = () => (
-  <Row justify="space-around">
-    <Col className="flex-1">账号</Col>
-    <Col className="flex-1">操作</Col>
-    <Col className="flex-1">权限</Col>
-  </Row>
-);
+// const AccountTableHeader = () => (
+//   <Row justify="space-around">
+//     <Col className="flex-1">账号</Col>
+//     <Col className="flex-1">操作</Col>
+//     <Col className="flex-1">权限</Col>
+//   </Row>
+// );
 
 const AccountTable = () => {
   const dataSource = [
@@ -64,13 +64,17 @@ const AccountTable = () => {
   }
   return (
     <section className="account-table">
-      <List header={<AccountTableHeader />} bordered itemLayout="vertical">
+      <List bordered>
         {dataSource.map((value) => (
           <List.Item key={value.account}>
-            <Row className="flex-1" justify="space-around">
-              <Col className="flex-1">{value.account}</Col>
-              <Col className="flex-1">
-                <Row>
+            <Row className="flex-1" justify="space-between" align="middle">
+              <Col>
+                账号：
+                {value.account}
+              </Col>
+              <Col>
+                <Row align="middle">
+                  操作：
                   <Col>
                     <Button type="link" onClick={() => resetPassword(value)}>
                       重置密码
@@ -83,7 +87,8 @@ const AccountTable = () => {
                   </Col>
                 </Row>
               </Col>
-              <Col className="flex-1">
+              <Col>
+                权限：
                 <Checkbox onChange={(e) => onChange(e, value)}>
                   商品管理
                 </Checkbox>
