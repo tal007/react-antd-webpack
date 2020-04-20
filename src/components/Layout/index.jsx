@@ -1,10 +1,10 @@
-// import Header from '@comp/Header';
+import Header from '@comp/Header';
 
 class Layout extends React.Component {
   render() {
     return (
       <section className="layout">
-        {/* <Header /> */}
+        <Header />
         {this.props.children}
       </section>
     );
