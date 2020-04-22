@@ -8,6 +8,19 @@ const styleRules = require('./styleRules');
 
 const bundleAnalyzer = false;
 
+const plugins = [
+  new CleanWebpackPlugin(),
+  new MiniCssExtractPlugin({
+    // 这里的配置和webpackOptions.output中的配置相似
+    // 即可以通过在名字前加路径，来决定打包后的文件存在的路径
+    filename: 'css/[name].[hash:8].css',
+  }),
+];
+
+if (bundleAnalyzer) {
+  plugins.unshift(new BundleAnalyzerPlugin());
+}
+
 const prodConfig = {
   mode: 'production',
   devtool: 'cheap-module-source-map',
@@ -27,15 +40,7 @@ const prodConfig = {
       }),
     ],
   },
-  plugins: [
-    new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin({
-      // 这里的配置和webpackOptions.output中的配置相似
-      // 即可以通过在名字前加路径，来决定打包后的文件存在的路径
-      filename: 'css/[name].[hash:8].css',
-    }),
-    bundleAnalyzer && new BundleAnalyzerPlugin(),
-  ],
+  plugins,
 };
 
 module.exports = prodConfig;
