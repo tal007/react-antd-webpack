@@ -51,7 +51,8 @@ function deleteAccount() {
 }
 
 const AccountTable = () => (
-  <Table bordered dataSource={dataSource} columns={columns} />
+  // <Table bordered dataSource={dataSource} columns={columns} />
+  <div>2132</div>
 );
 
 export default AccountTable;

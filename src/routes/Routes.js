@@ -1,9 +1,10 @@
+/* eslint-disable prettier/prettier */
 import { lazy } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-const Home = lazy(() => import('@pages/Home'));
-const About = lazy(() => import('@pages/About'));
-const Authority = lazy(() => import('@pages/Authority'));
+const Home = lazy(() => import(/* webpackChunkName: "Home" */ '@pages/Home'));
+const About = lazy(() => import(/* webpackChunkName: "About" */ '@pages/About'));
+const Authority = lazy(() => import(/* webpackChunkName: "Authority" */ '@pages/Authority'));
 
 export const routes = [
   {

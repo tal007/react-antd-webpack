@@ -6,7 +6,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const externals = require('./externals');
 const styleRules = require('./styleRules');
 
-const bundleAnalyzer = false;
+const bundleAnalyzer = true;
 
 const plugins = [
   new CleanWebpackPlugin(),
@@ -27,12 +27,24 @@ const prodConfig = {
   output: {
     path: path.resolve(__dirname, '../build'),
     filename: 'js/bundle.[hash:8].js',
+    chunkFilename: 'js/[name].[hash:8].js', // 动态import文件名
   },
   externals,
   module: {
     rules: styleRules,
   },
   optimization: {
+    splitChunks: {
+      chunks: 'all',
+      minChunks: 2,
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+          name: 'vendor',
+          chunks: 'all',
+        },
+      },
+    },
     minimize: true,
     minimizer: [
       new TerserPlugin({
