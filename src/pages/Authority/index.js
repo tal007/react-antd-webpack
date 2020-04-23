@@ -1,5 +1,5 @@
 import './index.less';
-import { Input, Button, Row, Col, Divider, message } from 'antd';
+import { PageHeader, Input, Button, Row, Col, Divider, message } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
 import AccountTabele from './AccountTable';
 
@@ -13,6 +13,7 @@ function searchAccount() {
 
 const Authority = () => (
   <section className="authority-control">
+    <PageHeader title="权限管理" className="module-header" />
     <section className="search-container">
       <Row>
         <Col offset={1}>查询</Col>
