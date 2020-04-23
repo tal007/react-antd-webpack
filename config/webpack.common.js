@@ -47,7 +47,7 @@ module.exports = {
       React: 'react',
     }),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, '../index.html'),
+      template: path.resolve(__dirname, '../public/index.html'),
       filename: './index.html',
       title: 'React Antd Webpack',
       inject: 'body',
