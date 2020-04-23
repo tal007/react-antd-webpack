@@ -29,7 +29,7 @@ const prodConfig = {
     filename: 'js/bundle.[hash:8].js',
     chunkFilename: 'js/[name].[hash:8].js', // 动态import文件名
   },
-  externals,
+  // externals,
   module: {
     rules: styleRules,
   },
@@ -37,16 +37,40 @@ const prodConfig = {
     splitChunks: {
       chunks: 'all',
       cacheGroups: {
-        lib: {
-          name: 'chunks-libs',
+        // 这里才是最重要的配置
+        vendors: {
           test: /[\\/]node_modules[\\/]/,
-          priority: 10,
-          chunks: 'initial', // 只打包初始时依赖的第三方
+          name: 'vendors',
+          minSize: 50000,
+          minChunks: 1,
+          chunks: 'initial',
+          priority: 1, // 该配置项是设置处理的优先级，数值越大越优先处理
+        },
+        commons: {
+          test: /[\\/]src[\\/]/,
+          name: 'commons',
+          minSize: 50000,
+          minChunks: 2,
+          chunks: 'initial',
+          priority: -1,
+          reuseExistingChunk: true, // 这个配置允许我们使用已经存在的代码块
         },
         antdDesign: {
-          name: 'antdDesign', // 单独将 elementUI 拆包
+          name: 'antd-design', // 单独将 antd-design 拆包
           priority: 20, // 权重要大于 libs 和 app 不然会被打包进 libs 或者 app
           test: /[\\/]node_modules[\\/]@ant-design[\\/]/,
+          chunks: 'all',
+        },
+        lodash: {
+          name: 'lodash', // 单独将 lodash 拆包
+          priority: 20, // 权重要大于 libs 和 app 不然会被打包进 libs 或者 app
+          test: /[\\/]node_modules[\\/]lodash[\\/]/,
+          chunks: 'all',
+        },
+        reactLib: {
+          name: 'react-lib', // 单独将 lodash 拆包
+          priority: 20, // 权重要大于 libs 和 app 不然会被打包进 libs 或者 app
+          test: /[\\/]node_modules[\\/](react|react-dom|react-router-dom)[\\/]/,
           chunks: 'all',
         },
       },
@@ -54,7 +78,14 @@ const prodConfig = {
     minimize: true,
     minimizer: [
       new TerserPlugin({
-        sourceMap: true,
+        // sourceMap: true,
+        parallel: true,
+        extractComments: false,
+        terserOptions: {
+          output: {
+            comments: false,
+          },
+        },
       }),
     ],
   },

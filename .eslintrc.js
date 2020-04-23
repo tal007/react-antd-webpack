@@ -26,7 +26,7 @@ module.exports = {
     "prettier"
   ],
   "rules": {
-    "prettier/prettier": "error",
+    "prettier/prettier": ["error", {}, {}],
       //关闭换行符操作系统格式问题
       "linebreak-style": [
           "off",
