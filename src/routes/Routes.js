@@ -5,6 +5,7 @@ const Home = lazy(() => import('@pages/Home'));
 const About = lazy(() => import('@pages/About'));
 const Authority = lazy(() => import('@pages/Authority'));
 const AddAccount = lazy(() => import('@pages/AddAccount'));
+const Upload = lazy(() => import('@pages/Upload'));
 
 export const routes = [
   {
@@ -28,6 +29,12 @@ export const routes = [
     path: '/add-account',
     component: AddAccount,
     displayName: 'AddAccount',
+    exact: true,
+  },
+  {
+    path: '/upload',
+    component: Upload,
+    displayName: 'Upload',
     exact: true,
   },
 ];
