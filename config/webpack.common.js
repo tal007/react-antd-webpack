@@ -45,6 +45,7 @@ module.exports = {
     new webpack.ProvidePlugin({
       // 这样就不用每个文件都引用react了，但是需要在eslintrc中配置eslint语法检测
       React: 'react',
+      PropTypes: 'prop-types',
     }),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '../public/index.html'),

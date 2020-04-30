@@ -2,9 +2,11 @@
 import { lazy } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-const Home = lazy(() => import(/* webpackChunkName: "Home" */ '@pages/Home'));
-const About = lazy(() => import(/* webpackChunkName: "About" */ '@pages/About'));
-const Authority = lazy(() => import(/* webpackChunkName: "Authority" */ '@pages/Authority'));
+const Home = lazy(() => import('@pages/Home'));
+const About = lazy(() => import('@pages/About'));
+const Authority = lazy(() => import('@pages/Authority'));
+const AddAccount = lazy(() => import('@pages/AddAccount'));
+const Upload = lazy(() => import('@pages/Upload'));
 
 export const routes = [
   {
@@ -22,6 +24,19 @@ export const routes = [
     path: '/authority',
     component: Authority,
     displayName: 'Authority',
+    exact: true,
+  },
+  {
+    path: '/add-account',
+    component: AddAccount,
+    displayName: 'AddAccount',
+    exact: true,
+  },
+  {
+    path: '/upload',
+    component: Upload,
+    displayName: 'Upload',
+    exact: true,
   },
 ];
 

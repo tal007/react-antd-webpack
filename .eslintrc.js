@@ -98,5 +98,6 @@ module.exports = {
       "react/require-default-props":0,
       "react/react-in-jsx-scope": 0,
       "react/jsx-no-bind": 0,
+      "react/jsx-props-no-spreading": 0
   }
 };
