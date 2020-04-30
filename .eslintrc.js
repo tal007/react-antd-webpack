@@ -27,6 +27,7 @@ module.exports = {
   ],
   "rules": {
     "prettier/prettier": ["error", {}, {}],
+    "comma-dangle": ["error", "never"],
       //关闭换行符操作系统格式问题
       "linebreak-style": [
           "off",
